@@ -1,0 +1,44 @@
+spring:
+  datasource:
+    url: jdbc:h2:tcp://localhost/~/PrayerDiary
+    username: sa
+    password:
+    driver-class-name: org.h2.Driver
+
+  tomcat:
+    max-wait: 20000
+    max-active: 50
+    max-idle: 20
+    min-idle: 15
+
+  jpa:
+    hibernate:
+      ddl-auto: update
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.H2Dialect
+        format_sql: true
+        id:
+          new_generator_mappings: false
+
+  thymeleaf:
+    prefix: classpath:/templates/
+    suffix: .html
+
+server:
+  port: 8080
+
+security:
+  jwt:
+    token:
+      secret-key: bezKoderSecretKey
+      expire-length: 86400000 # 5 minutes duration by default: 5 minutes * 60 seconds * 1000 miliseconds
+
+
+logging.level:
+  org.hibernate.SQL: debug
+
+bezkoder:
+  app:
+    jwtExpirationMs: 86400000
+    jwtSecret: bezKoderSecretKey

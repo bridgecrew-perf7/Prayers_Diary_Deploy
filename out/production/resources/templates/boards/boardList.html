@@ -1,0 +1,37 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org" xmlns:sec="https://www.thymeleaf.org/thymeleaf-extras-springsecurity3">
+
+<head th:replace="fragments/header :: header"/>
+<body>
+<div class="container">
+    <div th:replace="fragments/bodyHeader :: bodyHeader"/>
+    <div>
+        <table class="table table-striped">
+            <thead>
+            <tr>
+
+                <th>제목</th>
+                <th>내용</th>
+                <th>작성자</th>
+
+                <th></th>
+            </tr>
+            </thead>
+
+            <tr th:each="board : ${boards}">
+
+                <td th:text="${board.title}"></td>
+                <td th:text="${board.content}"></td>
+                <td th:text="${board.user}"></td>
+<!--                <td>-->
+<!--                    <a class="btn btn-primary" href="#" role="button"-->
+<!--                       th:href="@{/writes/{id}/edit (id=${write.id})}">수정</a>-->
+<!--                </td>-->
+            </tr>
+
+        </table>
+    </div>
+    <div th:replace="fragments/footer :: footer"/>
+</div> <!-- /container -->
+</body>
+</html>
